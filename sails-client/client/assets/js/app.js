@@ -15,14 +15,47 @@
   if (typeof console !== 'undefined') {
     log('Connecting to Sails.js...');
   }
+  
+  function bindForm() {
+    $('#addUser button.add').click(
+      function() {
+        $.post('/Name/create',  {
+          label: $('#label').val()
+        }, function(data) {
+          $('#label').val();
+        });
+      }
+    );
+  }
+  
+  function createName() {
+    
+  }
+  
+  function drawNames(data) {
+    var $nameList = $('#nameList');
+    $nameList.empty();
+    var newItem;
+    
+    for(var i = 0; i < data.length; i++) {
+        newItem = $('<li />');
+        newItem.text(data[i].label);
+        
+        $nameList.append(newItem);
+    }    
+  }
 
   socket.on('connect', function socketConnected() {
     
     log('requesting data');
     
+    bindForm();
+    
     socket.request('/Name', {}, function(data) {
       log('request');
       log(data);
+      
+      drawNames(data);
     });
 
     // Listen for Comet messages from Sails
@@ -36,6 +69,12 @@
       log('New comet message received :: ', message);
       //////////////////////////////////////////////////////
 
+      if((message.model === 'name') && (message.verb === 'create')) {
+        newItem = $('<li />');
+        newItem.text(message.data.label);
+        
+         $('#nameList').append(newItem);
+      }
     });
 
 
