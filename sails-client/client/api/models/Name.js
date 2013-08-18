@@ -6,14 +6,16 @@
  *
  */
 
-module.exports = {
+var name = {
 
   attributes: {
-  	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
+	label: 'STRING',
+	order: {
+		type: 'INTEGER',
+		defaultsTo: 1
+	}
   }
 
 };
+
+module.exports = Name;

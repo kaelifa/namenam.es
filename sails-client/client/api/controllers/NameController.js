@@ -12,6 +12,8 @@ module.exports = {
     res.send('hello world!');
   }
   */
-  
+  list: function (req, res) {
+	res.send('Hello world');
+  }
 
 };
