@@ -6,14 +6,21 @@
  *
  */
 
-module.exports = {
-
-  attributes: {
-  	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
-  }
-
+var User = {
+	
+	attributes: {
+		fullName:	'STRING',
+		email:		'STRING',
+		password:	'STRING',
+	
+		// Override toJSON instance method
+		// to remove password value
+		toJSON: function() {
+			var obj = this.toObject();
+			delete obj.password;
+			return obj;
+		}
+	}
 };
+
+module.exports = USer;

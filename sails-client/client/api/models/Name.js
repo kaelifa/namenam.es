@@ -6,16 +6,14 @@
  *
  */
 
-var name = {
-
-  attributes: {
-	label: 'STRING',
-	order: {
-		type: 'INTEGER',
-		defaultsTo: 1
+var Name = {
+	attributes: {
+		label: 'STRING',
+		order: {
+			type: 'INTEGER',
+			defaultsTo: 1
+		}
 	}
-  }
-
 };
 
 module.exports = Name;
