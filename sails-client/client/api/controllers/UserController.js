@@ -1,17 +1,32 @@
 /**
- * USerController
+ * UserController
  *
  * @module		:: Controller
  * @description	:: Contains logic for handling requests.
  */
 
 module.exports = {
-
-  /* e.g.
-  sayHello: function (req, res) {
-    res.send('hello world!');
-  }
-  */
-  
-
+	list: function(req, res) {
+		
+		User.find({
+			},
+			function(err, data) {
+			console.log(data);
+		
+			res.view({
+				users: data
+			});
+		});
+		
+	},
+	
+	create: function(req, res) {
+		User.create({
+			name: 'Adam',
+			email: 'adam@adam.com',
+			password: 'test'
+		}).done(function(err, user) {
+			
+		});
+	}
 };

@@ -6,14 +6,25 @@
  */
 
 module.exports = {
-
-  /* e.g.
-  sayHello: function (req, res) {
-    res.send('hello world!');
-  }
-  */
-  list: function (req, res) {
-	res.send('Hello world');
-  }
-
+	list: function(req, res) {
+		
+		Name.find({
+			},
+			function(err, data) {
+			console.log(data);
+		
+			res.view({
+				names: data
+			});
+		});
+		
+	},
+	
+	create: function(req, res) {
+		Name.create({
+			label: req.param('label')	
+		}).done(function(err, name) {
+			res.json(name);
+		});
+	}
 };

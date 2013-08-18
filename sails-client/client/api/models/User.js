@@ -6,10 +6,10 @@
  *
  */
 
-var User = {
+var UserModel = {
 	
 	attributes: {
-		fullName:	'STRING',
+		name:		'STRING',
 		email:		'STRING',
 		password:	'STRING',
 	
@@ -23,4 +23,4 @@ var User = {
 	}
 };
 
-module.exports = User;
+module.exports = UserModel;
