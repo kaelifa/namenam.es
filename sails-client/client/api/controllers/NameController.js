@@ -20,11 +20,14 @@ module.exports = {
 		
 	},
 	
-	create: function(req, res) {
-		Name.create({
-			label: req.param('label')	
+	adamcreate: function(req, res) {
+		console.log(req);
+		
+		Name.create({	
+			label: req.param('label')
 		}).done(function(err, name) {
 			res.json(name);
+			
 		});
 	}
 };

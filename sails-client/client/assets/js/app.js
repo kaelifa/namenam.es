@@ -17,6 +17,13 @@
   }
 
   socket.on('connect', function socketConnected() {
+    
+    log('requesting data');
+    
+    socket.request('/Name', {}, function(data) {
+      log('request');
+      log(data);
+    });
 
     // Listen for Comet messages from Sails
     socket.on('message', function messageReceived(message) {
