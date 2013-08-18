@@ -1,0 +1,2 @@
+# client
+### a Sails application
