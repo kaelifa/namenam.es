@@ -4,6 +4,9 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+import allauth
+from allauth.account.views import LogoutView
+
 urlpatterns = patterns('',
     # Examples:
     #url(r'^$', 'namenames.frontend.home', name='home'),
@@ -13,6 +16,9 @@ urlpatterns = patterns('',
     # All Auth
     #
     (r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    (r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
+    
+    url(r'^accounts/allauth/logout/$', allauth.account.views.LogoutView.as_view(), name='logoutallauth'),
     (r'^accounts/', include('allauth.urls')),
     
     #

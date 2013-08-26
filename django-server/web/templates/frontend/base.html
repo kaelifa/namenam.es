@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% load account %}
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -13,10 +15,58 @@
 		<meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="{% static "frontend/css/styles.css" %}">
     </head>
+	
+	<!--
+	
+	Social network integration is handled by django-allauth
+	
+	see https://github.com/pennersr/django-allauth
+	
+	-->
     
     <body>
-  
-        <h1>Hello</h1>      
+		<!-- show the username of the logged in LOCAL user  -->
+		<span>
+			{% if user.is_authenticated %}
+			
+				{{ user.first_name }} {{ user.last_name }} ({{ user }})
+			
+			{% endif %}
+		</span>
+
+		<!-- display username (after signed in with oauth) -->		
+		<div>
+			{% user_display user %}
+		</div>
+		
+		<div>
+			{% if user.is_authenticated %}
+				{% get_social_accounts user as accounts %}
+				
+				{% if accounts %} 
+					{{ accounts.twitter }} -- a list of connected Twitter accounts
+				{% endif %}
+			
+			{% else %}
+			
+				Not signed in
+			
+			{% endif %}
+		</div>
+		
+		
+		<div>Social Buttons</div>
+		
+		<div>
+			<a href="{% provider_login_url "twitter" %}">Sign in with Twitter</a>
+		</div>
+		
+		<div>
+			<a href="{% url 'django.contrib.auth.views.logout' %}?next=/">Sign Out</a>	
+		</div>
         
+		<div>
+			<a href="{% url 'logoutallauth' %}">Sign Out AllAuth</a>
+		</div>		
     </body>
 </html>
