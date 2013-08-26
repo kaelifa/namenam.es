@@ -1,0 +1,6 @@
+localsettings.py
+.sass-cache/*
+*.pyc
+.DS_Store
+*.scssc
+
