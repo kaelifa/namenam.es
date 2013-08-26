@@ -10,6 +10,12 @@ urlpatterns = patterns('',
     #url(r'^namenames/', include('namenames.frontend.urls')),
 
     #
+    # All Auth
+    #
+    (r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    (r'^accounts/', include('allauth.urls')),
+    
+    #
     #
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
