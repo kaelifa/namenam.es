@@ -30,6 +30,10 @@
 			{% if user.is_authenticated %}
 			
 				{{ user.first_name }} {{ user.last_name }} ({{ user }})
+				
+			{% else %}
+			
+				<a href="/accounts/login/?next=/">Sign in</a>
 			
 			{% endif %}
 		</span>
@@ -54,7 +58,7 @@
 			{% endif %}
 		</div>
 		
-		
+		<!--
 		<div>Social Buttons</div>
 		
 		<div>
@@ -62,11 +66,31 @@
 		</div>
 		
 		<div>
-			<a href="{% url 'django.contrib.auth.views.logout' %}?next=/">Sign Out</a>	
-		</div>
-        
-		<div>
 			<a href="{% url 'logoutallauth' %}">Sign Out AllAuth</a>
-		</div>		
+		</div>
+		
+		
+		-->
+		
+		{% if user.is_authenticated %}
+			<div>
+				<a href="{% url 'django.contrib.auth.views.logout' %}?next=/">Sign Out</a>	
+			</div>
+		{% endif %}
+		
+		
+		
+		<ol>
+			<li><a href="{% url 'main_home' %}">Home</a></li>
+			<li><a href="{% url 'main_friends' %}">Friends</a></li>
+		</ol>
+		
+				
+        
+		{% block "maincontent" %}
+		
+		
+		{% endblock %}
+		
     </body>
 </html>

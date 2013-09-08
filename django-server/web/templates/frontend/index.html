@@ -1,1 +1,28 @@
 {% extends "frontend/base.html" %}
+
+
+{% block "maincontent" %}
+
+    <form method="post">{% csrf_token %}
+        {{ name_form.as_p }}
+        <input type="submit" value="Add" />
+    </form>
+        
+    
+    
+    <form method="post">{% csrf_token %}
+        <ol>
+            {% for loop_name in suggested_names %}
+                <li>
+                    {{ loop_name.name }}
+                    {% if loop_name.matched %}
+                        [match]
+                    {% endif %}
+                    
+                    <button name="delete" value="{{ loop_name.id }}">Delete</button>
+                </li>
+            {% endfor %}
+        </ol>
+    </form>		
+		
+{% endblock %}
