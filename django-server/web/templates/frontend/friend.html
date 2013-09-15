@@ -1,0 +1,34 @@
+{% extends "frontend/base.html" %}
+
+
+{% block "maincontent" %}
+
+    <form method="post">{% csrf_token %}
+        {{ friend_form.as_p }}
+        <input type="submit" value="Search" />
+    </form>
+        
+    
+    
+    <form method="post">{% csrf_token %}
+        <ol>
+            {% for loop_name in friends %}
+                <li>
+                    {{ loop_name.linked_user.first_name }} {{ loop_name.linked_user.last_name }}    <button name="delete" value="{{ loop_name.id }}">Delete</button>
+                </li>
+            {% endfor %}
+        </ol>
+    </form>
+	
+	
+	<form method="post">{% csrf_token %}
+		<ol>
+			{% for friend in friend_form.friend_search %}
+			<li>
+				{{ friend.first_name }} {{ friend.last_name }} {{ friend.email }}     <button name="add" value="{{ friend.id }}">Add</button>
+			</li>
+			{% endfor %}
+		</ol>
+	</form>
+		
+{% endblock %}

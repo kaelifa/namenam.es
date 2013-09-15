@@ -8,7 +8,7 @@ admin.autodiscover()
 # Import class based views
 #
 import namenames.frontend.views
-from namenames.frontend.views import Home
+from namenames.frontend.views import Home, Friend
 
 urlpatterns = patterns('namenames.frontend',
 
@@ -18,8 +18,8 @@ urlpatterns = patterns('namenames.frontend',
     #
     # This is the entry point for legacy
     #
-    #url(r'^home$', 'views.Home.as_view()'),
-    url(r'^$', Home.as_view()),
+    url(r'^friend$', Friend.as_view(), name='main_friends'),
+    url(r'^$', Home.as_view(), name='main_home'),
 )
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

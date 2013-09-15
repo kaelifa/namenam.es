@@ -90,8 +90,8 @@ STATICFILES_DIRS = (
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',    
     'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
@@ -127,6 +127,8 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'grappelli',
+    
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -136,7 +138,47 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    'django.contrib.admindocs',
+    #'django.contrib.admindocs',
+    
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # ... include the providers you want to enable:
+    'allauth.socialaccount.providers.bitly',
+    'allauth.socialaccount.providers.dropbox',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.linkedin',
+    'allauth.socialaccount.providers.openid',
+    'allauth.socialaccount.providers.persona',
+    'allauth.socialaccount.providers.soundcloud',
+    'allauth.socialaccount.providers.stackexchange',
+    'allauth.socialaccount.providers.twitch',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.vimeo',
+    'allauth.socialaccount.providers.weibo',
+    
+    'corsheaders',
+    
+    'south',
+    'namenames.frontend',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.request',
+    'allauth.account.context_processors.account',
+    'allauth.socialaccount.context_processors.socialaccount',
+)
+
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
 )
 
 # A sample logging configuration. The only tangible logging
@@ -167,5 +209,7 @@ LOGGING = {
         },
     }
 }
+
+GRAPPELLI_ADMIN_TITLE = 'namenam.es'
 
 from localsettings import *

@@ -1,4 +1,4 @@
 #!/bin/bash
-source /home/vagrant/virtualenvs/jellyvine/bin/activate
+source /home/vagrant/virtualenvs/namenames/bin/activate
 python manage.py runserver 0.0.0.0:8000
 
