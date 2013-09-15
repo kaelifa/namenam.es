@@ -1,1 +1,504 @@
-body { color: red; }
+@charset "UTF-8";
+/**
+ * @projectDescription    namenam.es
+ *               @file    styles.css
+ *             @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *            @version    0.1
+ *               @date    2013-08-18 18:10
+ *              @notes    NB. This is the master Sass file which imports all the partials.
+ *                        No CSS should be written in this file.
+ */
+/* Please be aware that styles.css is a generated file and has been built using SCSS */
+/**
+ * @section         Compass
+ *   @notes         http://compass-style.org/install/
+ *                  $ sudo gem update --system
+ *                  $ sudo gem install compass
+ */
+/**
+ * @section         Susy Grid
+ *   @notes         http://susy.oddbird.net/guides/
+ *                  $ sudo gem install susy
+ */
+/**
+ * @section         Sassy buttons
+ *   @notes         http://jaredhardy.com/sassy-buttons/
+ *                  $ sudo gem install modular-scale
+ */
+/**
+ * @section         Settings
+ */
+/**
+ * @description    Susy Settings - Set up your default grid values: total columns, column width, and gutter width.
+ *
+ *      @author    http://susy.oddbird.net/
+ *     @version    0.1
+ *        @date    2013-08-26 17:57
+ *
+ *     @example
+ *
+ *        @type    settings
+ *       @notes    The breakpoint variables use colour coding. The .globalHeader class has debgging which
+ *                 can be enabled to view the matching colours in the background of the .globalHeader in
+ *                 the front end.
+ *      @ignore
+ *
+ */
+/**
+ * @section        settings
+ *   @notes        default size 0px - 576px
+ */
+/**
+ * @section        736 - PURPLE
+ *   @notes        (min-width: 321px) and (max-width: 480px)
+ */
+/**
+ * @section        736 - RED
+ *   @notes        (min-width: 576px) and (max-width: 736px)
+ */
+/**
+ * @section        736 - PINK
+ *   @notes        (min-width: 576px)
+ */
+/**
+ * @section        816 - BLUE
+ *   @notes        (min-width: 736px) and (max-width: 816px)
+ */
+/**
+ * @section        816 - YELLOW
+ *   @notes        (max-width: 816px)
+ */
+/**
+ * @section        976 - GREEN
+ *   @notes        (min-width: 816px)
+ */
+/**
+ * @section         Variables
+ */
+/**
+ * @description    Colour palette
+ *
+ *      @author    Kristina Auckland <Kristina.Auckland@bss.org>
+ *     @version    0.1
+ *        @date    2013-09-08 15:27
+ *
+ *
+ *     @example
+ *
+ *
+ *        @type    variables
+ *       @notes
+ *      @ignore
+ *
+ */
+/**
+* @section        Base colours
+*/
+/**
+* @section        Colour red
+*/
+/**
+* @section        Colour green
+*/
+/**
+* @section        Colour blue
+*/
+/**
+* @section        Other company brand colours
+*/
+/**
+* @section        Colour complementary
+*/
+/**
+* @section        Colour
+*/
+/**
+ * @section         Mixins
+ */
+/**
+ * @description    font stack mixins
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-09-08 15:32
+ *
+ *
+ *     @example
+ *                 @include fontsize(12);
+ *
+ *        @type    mixin
+ *       @notes
+ *      @ignore
+ */
+/**
+ *     @section   default-font-stack
+ */
+/**
+ *     @section   headline-font-stack
+ */
+/**
+ * @description    font-sizing mixin
+ *
+ *      @author    http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+ *     @version    0.1
+ *        @date    2013-09-08 15:35
+ *
+ *
+ *     @example    @include font-size(1.6);
+ *
+ *
+ *        @type    mixin
+ *       @notes    returns rem and fall-back px values
+ *      @ignore
+ */
+/**
+ * @section        font-size
+ */
+/**
+ * @section        Placeholders
+ */
+/**
+ * @description    defaultBorder placeholder
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-09-09 14:37
+ *
+ *
+ *     @example
+ *                 @extend %defaultBorder;
+ *
+ *        @type    placeholder
+ *       @notes
+ */
+/**
+ * @section        border
+ */
+.navPrimary, .formListNames {
+  border-color: #2db4d4;
+  border-style: solid;
+  border-width: 4px;
+}
+
+/**
+ * @section         Global
+ */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/**
+ * @section         Elements
+ */
+/**
+ * @description    Creates the default styling for the body element
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-09-08 15:30
+ *
+ *
+ *     @example
+ *                 <body>
+ *
+ *
+ *        @type    element
+ *       @notes
+ */
+/**
+ * @section        body
+ */
+body {
+  background: white;
+  color: black;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/**
+ * @description    Styling for the nav element
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-09-09 18:24
+ *
+ *
+ *     @example
+ *                 <nav></nav>
+ *
+ *        @type    element
+ *       @notes
+ */
+/**
+ * @section        nav
+ */
+nav ul,
+nav ol,
+nav li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  text-decoration: none;
+}
+
+/**
+ * @section        Layout
+ */
+/**
+ * @description    Styling for the main layout wrapper
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-09-08 17:57
+ *
+ *
+ *     @example
+ *                 <div class="layoutWrapper">
+ *
+ *                 </div>
+ *
+ *
+ *        @type    layout
+ *       @notes
+ */
+/**
+ * @section        layoutWrapper
+ */
+.layoutWrapper {
+  *zoom: 1;
+  max-width: 71em;
+  _width: 71em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.layoutWrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/**
+ * @section         Navigation
+ */
+/**
+ * @description    Styling for the primary navigation
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-09-09 15:33
+ *
+ *
+ *     @example
+ *                 <nav class="navPrimary">
+ *
+ *                 </nav>
+ *
+ *        @type    navigation
+ *       @notes
+ *
+ */
+/**
+ * @section        navPrimary
+ */
+.navPrimary {
+  background: #2db4d4;
+  border-top: none;
+}
+.navPrimary a {
+  color: white;
+  display: inline-block;
+  padding: 1em 0;
+  text-align: center;
+  width: 24%;
+}
+.navPrimary a:hover {
+  background: white;
+  color: #2db4d4;
+}
+
+/**
+ * @section         Modules
+ */
+/**
+ * @description    styling for the formListNames class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-09-09 14:33
+ *
+ *
+ *     @example
+ *                 <form class="formListNames">
+ *                 </form>
+ *
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        formListNames
+ */
+.formListNames {
+  padding: 1em;
+}
+
+/**
+ * @description    styling for the formField class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-08-26 17:48
+ *
+ *
+ *     @example
+ *                 <fieldset class="formField">
+ *
+ *                 </fieldset>
+ *
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        formField
+ */
+.formField {
+  border: none;
+}
+
+/**
+ * @description    styling for the formFieldLabel class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-08-26 17:48
+ *
+ *
+ *     @example
+ *                 <fieldset class="formField">
+ *                      <label class="formFieldLabel" for="quickEnquiry_message">How can we help you (optional)</label>
+ *                 </fieldset>
+ *
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        formFieldLabel
+ */
+/**
+ * @description    styling for the formInput class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-08-26 17:48
+ *
+ *
+ *     @example
+ *                 <fieldset class="formInput">
+ *
+ *                 </fieldset>
+ *
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        formInput
+ */
+.formInput input,
+.formInput textarea {
+  font-size: 14px;
+  font-size: 1.4rem;
+  padding: .33em;
+  width: 75%;
+}
+
+/**
+ * @description    styling for the favouriteNameField class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-08-26 17:48
+ *
+ *
+ *     @example
+ *                 <fieldset class="formField formInput formText favouriteNameField">
+ *                      <label class="formFieldLabel" for="favouriteNames_name_01">Name</label>
+ *                      <input type="email" name="favouriteNames_name_01" value="Anna" id="favouriteNames_name_01" />
+ *                 </fieldset>
+ *
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        favouriteNameField
+ */
+.favouriteNameField label {
+  display: none;
+}
+.favouriteNameField input {
+  border: none;
+}
+
+/**
+ * @description    styling for the rating class
+ *
+ *      @author    Kristina Auckland <kristina.auckland@gmail.com>
+ *     @version    0.1
+ *        @date    2013-09-08 15:04
+ *
+ *
+ *     @example
+ *                 <div class="rating">
+ *                      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+ *                 </div>
+ *
+ *
+ *        @type    module
+ *       @notes
+ */
+/**
+ * @section        rating
+ */
+.rating {
+  background: red;
+  color: #2db4d4;
+  direction: rtl;
+  float: right;
+  unicode-bidi: bidi-override;
+  width: 20%;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span :hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+}
+
+/**
+ * @section        Plugins
+ */
+/**
+ * @section        Helpers
+ */
+/**
+ * @section        Media
+ */
+/**
+ * @section        Development
+ */

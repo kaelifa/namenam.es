@@ -1,6 +1,4 @@
 {% load static %}
-{% load socialaccount %}
-{% load account %}
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -8,89 +6,63 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<title>{% block "title" %}{% endblock %}</title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="{% static "frontend/css/styles.css" %}">
-    </head>
-	
-	<!--
-	
-	Social network integration is handled by django-allauth
-	
-	see https://github.com/pennersr/django-allauth
-	
-	-->
-    
-    <body>
-		<!-- show the username of the logged in LOCAL user  -->
-		<span>
-			{% if user.is_authenticated %}
-			
-				{{ user.first_name }} {{ user.last_name }} ({{ user }})
-				
-			{% else %}
-			
-				<a href="/accounts/login/?next=/">Sign in</a>
-			
-			{% endif %}
-		</span>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="{% static "frontend/css/styles.css" %}" />
+		<script src="{% static "frontend/js/vendor/modernizr-2.6.2.js" %}"></script>
+	</head>
 
-		<!-- display username (after signed in with oauth) -->		
-		<div>
-			{% user_display user %}
-		</div>
-		
-		<div>
-			{% if user.is_authenticated %}
-				{% get_social_accounts user as accounts %}
-				
-				{% if accounts %} 
-					{{ accounts.twitter }} -- a list of connected Twitter accounts
+	<!--
+
+	Social network integration is handled by django-allauth
+
+	see https://github.com/pennersr/django-allauth
+
+	-->
+
+	<body>
+		<div class="layoutWrapper">
+			<!-- show the username of the logged in LOCAL user  -->
+			<span>
+				{% if user.is_authenticated %}
+
+					{{ user.first_name }} {{ user.last_name }} ({{ user }})
+
+				{% else %}
+
+					<a href="/accounts/login/?next=/">Sign in</a>
+
 				{% endif %}
-			
-			{% else %}
-			
-				Not signed in
-			
+			</span>
+
+
+
+
+			{% if user.is_authenticated %}
+				<div>
+					<a href="{% url 'django.contrib.auth.views.logout' %}?next=/">Sign Out</a>
+				</div>
 			{% endif %}
-		</div>
-		
-		<!--
-		<div>Social Buttons</div>
-		
-		<div>
-			<a href="{% provider_login_url "twitter" %}">Sign in with Twitter</a>
-		</div>
-		
-		<div>
-			<a href="{% url 'logoutallauth' %}">Sign Out AllAuth</a>
-		</div>
-		
-		
-		-->
-		
-		{% if user.is_authenticated %}
-			<div>
-				<a href="{% url 'django.contrib.auth.views.logout' %}?next=/">Sign Out</a>	
+
+
+
+			<ol>
+				<li><a href="{% url 'main_home' %}">Home</a></li>
+				<li><a href="{% url 'main_friends' %}">Friends</a></li>
+			</ol>
+
+
+
+			<div class="layoutMain">
+				<div class="contentWrapper">
+					{% block "maincontent" %}
+					{% endblock %}
+				</div>
 			</div>
-		{% endif %}
-		
-		
-		
-		<ol>
-			<li><a href="{% url 'main_home' %}">Home</a></li>
-			<li><a href="{% url 'main_friends' %}">Friends</a></li>
-		</ol>
-		
-				
-        
-		{% block "maincontent" %}
-		
-		
-		{% endblock %}
-		
-    </body>
+
+		</div>
+	</body>
 </html>

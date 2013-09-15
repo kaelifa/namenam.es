@@ -3,26 +3,34 @@
 
 {% block "maincontent" %}
 
-    <form method="post">{% csrf_token %}
-        {{ name_form.as_p }}
-        <input type="submit" value="Add" />
-    </form>
-        
-    
-    
-    <form method="post">{% csrf_token %}
-        <ol>
-            {% for loop_name in suggested_names %}
-                <li>
-                    {{ loop_name.name }}
-                    {% if loop_name.matched %}
-                        [match]
-                    {% endif %}
-                    
-                    <button name="delete" value="{{ loop_name.id }}">Delete</button>
-                </li>
-            {% endfor %}
-        </ol>
-    </form>		
-		
+	<form method="post" class="formListNames">{% csrf_token %}
+
+
+		<fieldset class="formField formInput formText">
+			<label class="formFieldLabel" for="favouriteNames_add_name">Name</label>
+			<input type="text" name="{{ name_form.name.tag_name }}" placeholder="Add name" id="favouriteNames_add_name" value="{{ name_form.name.field.value }}"/>
+		</fieldset>
+
+		<div class="formField formSubmit">
+			<input type="submit" class="button" name="add" value="Add" />
+		</div>
+	</form>
+
+
+
+	<form method="post">{% csrf_token %}
+		<ol>
+			{% for loop_name in suggested_names %}
+				<li>
+					{{ loop_name.name }}
+					{% if loop_name.matched %}
+						[match]
+					{% endif %}
+
+					<button name="delete" value="{{ loop_name.id }}">Delete</button>
+				</li>
+			{% endfor %}
+		</ol>
+	</form>
+
 {% endblock %}
