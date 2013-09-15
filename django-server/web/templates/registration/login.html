@@ -1,0 +1,34 @@
+
+    <div class="container">
+        <div class="sixteen columns">
+
+
+			<div class="searchClunker">
+
+
+
+				{% if form.errors %}
+				<p class="error">Your username and password didn't match. Please try again.</p>
+				{% endif %}
+
+
+				<form method="post" action="{% url 'django.contrib.auth.views.login' %}">{% csrf_token %}
+					{{ form.username.label_tag }}
+					<br />
+
+					{{ form.username }}
+
+
+					{{ form.password.label_tag }}
+					<br />
+					{{ form.password }}
+
+					<button type="submit" class="submit greenGradient">Sign in</button>
+					<input type="hidden" name="next" value="{{ next }}" />
+				</form>
+				
+				
+			</div>
+
+        </div>
+    </div>
